@@ -18,7 +18,7 @@ const TextNote: React.FC<Note> = ({backgroundColor, content, color, size, x, y})
           height: size,
         }}
       >
-        <textarea defaultValue={content} />
+        <img src={content} />
       </div>
     </Draggable>
   );

@@ -4,9 +4,9 @@ import {getDefaultTextNote} from '../../utils/note.util';
 import TextNote from '../TextNote/TextNote';
 import './workspace.scss';
 
-export const Workspace: React.FC<WorkspaceProps> = ({notes = [getDefaultTextNote()]}) => (
+export const Workspace: React.FC<WorkspaceProps> = ({notes}) => (
   <div className="workspace">
-    {notes.map((note: Note, i: number) => (
+    {notes?.map((note: Note, i: number) => (
       <TextNote key={i} {...note} />
     ))}
   </div>
