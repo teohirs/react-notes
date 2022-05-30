@@ -4,32 +4,9 @@ import Draggable from 'react-draggable';
 import { Note } from '../../types/types';
 import { DEFAULT_COLOR } from '../../utils/note.util';
 
-type MyState = {
-  id: string,
-  backgroundColor: string, 
-  content: string, 
-  color: string, 
-  size: number,
-  x: number, 
-  y: number,
-};
 
-
-export class TextNote extends React.Component<Note, MyState> {
+export class TextNote extends React.Component<Note> {
   
-
-  constructor(props: any) {
-    super(props);
-    this.state = {
-      id: props.id,
-      backgroundColor: props.backgroundColor, 
-      content: props.content, 
-      color: props.color, 
-      size: props.size,
-      x: props.x, 
-      y: props.y,
-    };
-  }
 
   onDragStop = (e: any, position: any) => {
     const {x, y} = position;
@@ -37,7 +14,7 @@ export class TextNote extends React.Component<Note, MyState> {
   };
 
   persistNewLocation(x: number, y: number) {
-    fetch(`http://localhost:3002/notes/` + this.state.id, {
+    fetch(`http://localhost:3002/notes/` + this.props.id, {
       method: 'PATCH',
       body: JSON.stringify({
         x: x,
@@ -61,7 +38,7 @@ export class TextNote extends React.Component<Note, MyState> {
   }
 
   persistNewText(content: string) {
-    fetch(`http://localhost:3002/notes/` + this.state.id, {
+    fetch(`http://localhost:3002/notes/` + this.props.id, {
       method: 'PATCH',
       body: JSON.stringify({
         content: content 
@@ -83,19 +60,19 @@ export class TextNote extends React.Component<Note, MyState> {
       <Draggable 
         axis="both" 
         defaultClassName="note text-note" 
-        defaultPosition={{x: this.state.x, y:this.state.y}} 
+        defaultPosition={{x: this.props.x, y:this.props.y}} 
         scale={1}  
         onStop={this.onDragStop}>
       <div
         style={{
-          backgroundColor: this.state.backgroundColor,
-          color: this.state.color ?? DEFAULT_COLOR,
-          width: this.state.size,
-          height: this.state.size,
+          backgroundColor: this.props.backgroundColor,
+          color: this.props.color ?? DEFAULT_COLOR,
+          width: this.props.size,
+          height: this.props.size,
         }}
       >
         <textarea 
-          defaultValue={this.state.content}
+          defaultValue={this.props.content}
           onChange={this.onTextChange} />
       </div>
     </Draggable>
