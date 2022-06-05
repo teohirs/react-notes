@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react';
+import { Note } from '../../types/types';
 import Header from '../Header/Header';
-import Workspace from '../Workspace/Workspace';
+import {Workspace} from '../Workspace/Workspace';
 import './App.scss';
 
 const App = () => {
@@ -24,7 +25,7 @@ const App = () => {
       <Header />
       <main className="app__content">
         <Workspace 
-          notes={appState.notes}
+          notes={appState.notes.map(n => n as Note).sort((a, b) => a.id - b.id)}
         />
       </main>
     </div>

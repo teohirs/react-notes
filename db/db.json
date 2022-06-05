@@ -7,8 +7,8 @@
       "color": "blue",
       "size": 110,
       "type": "text",
-      "x": 595,
-      "y": 207
+      "x": 806,
+      "y": 445
     },
     {
       "id": "note2",
@@ -17,8 +17,8 @@
       "color": "white",
       "size": 200,
       "type": "text",
-      "x": 339,
-      "y": 15
+      "x": 763,
+      "y": 52
     },
     {
       "id": "note3",
@@ -60,8 +60,8 @@
       "content": "/img/office_03.jpg",
       "size": 250,
       "type": "media",
-      "x": 940,
-      "y": 264
+      "x": 1023,
+      "y": 41
     },
     {
       "id": "note8",
@@ -76,8 +76,8 @@
       "content": "/img/funny_02.jpg",
       "size": 180,
       "type": "media",
-      "x": 1392,
-      "y": 540
+      "x": 1471,
+      "y": 725
     },
     {
       "id": "note10",

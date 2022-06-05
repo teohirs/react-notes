@@ -3,10 +3,10 @@ import ReactDOM from 'react-dom';
 import Draggable from 'react-draggable';
 import { Note } from '../../types/types';
 import { DEFAULT_COLOR } from '../../utils/note.util';
-import './textNote.scss';
+import './mediaNote.scss';
 
 
-export class TextNote extends React.Component<Note> {
+export class MediaNote extends React.Component<Note> {
   
 
   onDragStop = (e: any, position: any) => {
@@ -74,6 +74,7 @@ export class TextNote extends React.Component<Note> {
           height: this.props.size,
         }}
       >
+        <img className="profile-photo" src={this.props.content}/>
         <textarea 
           defaultValue={this.props.content}
           onChange={this.onTextChange} />
