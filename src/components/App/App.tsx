@@ -19,7 +19,6 @@ const App = () => {
         setAppState({ notes: result });
       });
   }, [setAppState]);
-
   return (
     <div className="app">
       <Header />

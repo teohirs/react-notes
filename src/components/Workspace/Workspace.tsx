@@ -17,12 +17,11 @@ export class Workspace extends React.Component<NotesProps, NotesState> {
 
   constructor(props: NotesProps) {
     super(props);
-    this.state = {
-      notes: [...this.props.notes],
-    };
   }
 
   render() {
+    
+    this.storeNotesInState(this.props.notes)
     return (
       <div className="workspace">
         {this.state.notes?.map((note: Note, i: number) => {
@@ -41,6 +40,14 @@ export class Workspace extends React.Component<NotesProps, NotesState> {
       </div>
     )
   }
+
+  storeNotesInState(notes: any[]) {
+    this.state = {
+      notes: [...notes],
+    };
+  }
+
+
 
   handleReorder = (handledNoteId: any) => {
 
